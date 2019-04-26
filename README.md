@@ -97,7 +97,7 @@ RT-Thread online packages  --->
 
 ## 3、使用 atsrv_socket 软件包
 
-在 menuconfig 打开 atsrv_socket 后，当进行 bsp 编译时，它会被加入到 bsp 工程中进行编译。
+在 menuconfig 打开 atsrv_socket 后，当进行 bsp 编译时，它会被加入到 bsp 工程中进行编译，用户只需要配置好串口，AT 便可正常工作。
 
 * 完整的 AT 命令资料可以访问 [AT 命令 - RT-Thread 文档中心](https://www.rt-thread.org/document/site/programming-manual/at/at/)
 * 更多文档位于 [`/docs`](/docs) 下，使用前 **务必查看**
