@@ -44,7 +44,7 @@ static at_result_t at_ipsend_exec(void)
         return AT_RESULT_FAILE;
     }
 
-    sendbuffer = malloc(2048);
+    sendbuffer = (uint8_t *)malloc(2048);
     at_server_printf("\r\n>");
     while(1)
     {
@@ -111,7 +111,7 @@ static at_result_t at_ipsend_setup(const char *args)
             return AT_RESULT_FAILE;
         }
         
-        sendbuffer = malloc(length);
+        sendbuffer = (uint8_t *)malloc(length);
         if(sendbuffer == NULL)
         {
             at_server_printfln("SEND FAIL");
