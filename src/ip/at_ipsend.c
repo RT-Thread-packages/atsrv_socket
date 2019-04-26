@@ -34,6 +34,7 @@ static at_result_t at_ipsend_exec(void)
     uint8_t * psendbuffer;
     rt_err_t result = RT_EOK;
     int length = 0;
+    int buff_size = 2048;
     if(ipmode)
     {
         return AT_RESULT_FAILE;
@@ -44,12 +45,17 @@ static at_result_t at_ipsend_exec(void)
         return AT_RESULT_FAILE;
     }
 
-    sendbuffer = (uint8_t *)malloc(2048);
+    sendbuffer = (uint8_t *)malloc(buff_size);
+    if (sendbuffer == NULL)
+    {
+        return AT_RESULT_PARSE_FAILE;
+    }
+
     at_server_printf("\r\n>");
     while(1)
     {
         psendbuffer = sendbuffer;
-        length = 2048;
+        length = buff_size;
         while(length)
         {
             result = get_char_timeout(rt_tick_from_millisecond(20), psendbuffer);
