@@ -61,7 +61,7 @@ atsrv_socket 软件包遵循 Apache-2.0 许可，详见 LICENSE 文件。
 
 ### 1.3 依赖
 
-- RT-Thread 3.0+
+- RT-Thread 3.1.0+
 - AT commands 组件
 - SAL 组件
 
@@ -100,7 +100,6 @@ RT-Thread online packages  --->
 在 menuconfig 打开 atsrv_socket 后，当进行 bsp 编译时，它会被加入到 bsp 工程中进行编译，用户只需要配置好串口，AT 便可正常工作。
 
 * 完整的 AT 命令资料可以访问 [AT 命令 - RT-Thread 文档中心](https://www.rt-thread.org/document/site/programming-manual/at/at/)
-* 更多文档位于 [`/docs`](/docs) 下，使用前 **务必查看**
 
 ## 4、注意事项
 
