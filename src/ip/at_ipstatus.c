@@ -1,5 +1,10 @@
 #include <at.h>
 
+#define AT_SERVER_IP_GETIP          2       // Connected ap and got ip address
+#define AT_SERVER_IP_READY          3       // TCP/UDP transport established 
+#define AT_SERVER_IP_DISCONNECTED   4       // Disconnect the network 
+#define AT_SERVER_IP_NOT_CONNECTED  5       // Ap not connected 
+
 static at_result_t at_ipstatus_query(void)
 {
     at_server_printfln("AT+CIPSTATUS");
@@ -8,15 +13,13 @@ static at_result_t at_ipstatus_query(void)
 
 static at_result_t at_ipstatus_exec(void)
 {
-    int status = 5;
+    int status = AT_SERVER_IP_NOT_CONNECTED;
+
     if(rt_wlan_is_ready())
     {
-        status = 2;
+        status = AT_SERVER_IP_GETIP;
     }
-    else if(rt_wlan_is_connected())
-    {
-        status = 4;
-    }
+
     at_server_printfln("+STATUS:%d", status);
     return AT_RESULT_OK;
 }
