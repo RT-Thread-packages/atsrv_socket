@@ -1,6 +1,5 @@
 #include <at.h>
 #include <rtdevice.h>
-#define AT_VERSION "0.0.1"
 
 #define SSID_NAME_LENGTH_MAX 32
 #define PASSWORD_LENGTH_MAX 32
